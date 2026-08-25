@@ -12,9 +12,9 @@ dist/
 !.env.example
 
 # Research and generated materials kept outside the website repository
-data/
-outputs/
-config/
-scripts/
-docs/
+/data/
+/outputs/
+/config/
+/scripts/
+/docs/
 *.inspect.ndjson
