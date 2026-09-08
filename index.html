@@ -9,6 +9,26 @@
       content="Диагностика, обслуживание и ремонт автомобилей в Воронеже. Проспект Революции, 9."
     />
     <title>Автосервис в Воронеже — диагностика и ремонт</title>
+    <script>
+      (() => {
+        const hasDeepLink = window.location.hash && window.location.hash !== "#top";
+
+        if ("scrollRestoration" in window.history) {
+          window.history.scrollRestoration = hasDeepLink ? "auto" : "manual";
+        }
+
+        if (!hasDeepLink) {
+          window.scrollTo(0, 0);
+          window.addEventListener(
+            "pageshow",
+            (event) => {
+              if (!event.persisted) window.scrollTo(0, 0);
+            },
+            { once: true },
+          );
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

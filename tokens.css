@@ -1,7 +1,7 @@
-/* Hallmark · macrostructure: Marquee Hero · H6 hero knobs: image=full-bleed, caption=lower-left, text=overlaid
+/* Hallmark · macrostructure: Pinned Cinematic Hero · H6 hero knobs: image=full-bleed, scrub=adaptive, CTA=late overlay
  * theme: studied-DNA (source: user-supplied BMW workshop images) · vibe: "monochrome, clinical light, technical premium"
- * paper: oklch(12% 0.006 240) · accent: oklch(90% 0.018 240) · display: JetBrains Mono · body: IBM Plex Sans
- * enrichment: E2 Full-bleed hero · nav: N9 Edge-aligned minimal · footer: Ft5 Statement
+ * paper: oklch(12% 0.006 240) · accent: BMW blue · display: JetBrains Mono · body: IBM Plex Sans
+ * enrichment: E2 Adaptive scroll film + luminous contact glass · nav: N9 Edge-aligned minimal · footer: Ft5 Statement
  * studied: yes · context: explicit · Hallmark v1.1.0
  */
 
@@ -15,15 +15,21 @@
   --color-muted: oklch(70% 0.008 240);
   --color-rule: oklch(31% 0.009 240);
   --color-rule-2: oklch(24% 0.008 240);
-  --color-accent: oklch(90% 0.018 240);
-  --color-accent-ink: oklch(15% 0.008 240);
-  --color-focus: oklch(55% 0.18 240);
+  --color-accent: oklch(50.27% 0.1425 250.05);
+  --color-accent-ink: oklch(99% 0.004 240);
+  --color-focus: oklch(63.33% 0.168 249.01);
   --color-error: oklch(67% 0.16 28);
   --color-shadow: oklch(5% 0.006 240 / 0.34);
+  --color-glass-surface: oklch(16% 0.008 240);
+  --color-glass-raised: oklch(23% 0.01 240);
+  --color-glass-ink: oklch(96% 0.006 240);
+  --color-glass-muted: oklch(82% 0.008 240);
+  --color-glass-rule: oklch(88% 0.006 240);
+  --color-glass-light: oklch(99% 0.004 240);
 
   --font-display: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
   --font-body: "IBM Plex Sans", "Noto Sans", ui-sans-serif, sans-serif;
-  --space-3xs: 0.125rem;
+  --tracking-display: -0.035em;
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
