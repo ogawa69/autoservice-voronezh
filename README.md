@@ -1,20 +1,30 @@
 # AUTOSERVICE/01
 
-A cinematic, responsive landing page concept for an auto repair shop, built as a portfolio demo with React, TypeScript, Vite, and scroll-driven motion.
+**A portfolio demo built to show how I develop animation-heavy websites—not just how I style static sections.**
 
-[View the live demo](https://autoservice-voronezh.vercel.app)
+I built AUTOSERVICE/01 from the interaction logic up. The car responds to scroll. Pricing gets different interactions on desktop and mobile. The final scene moves from customer proof to contact. Behind those visuals are reliable media loading, reduced-motion states, keyboard controls, tests, and a strict bundle budget.
 
-> [!IMPORTANT]
-> This is a demo project. The company name, address, phone number, reviews, promotions, and all other business content are fictional. The site does not represent a real service center, and its contact details are not intended for customer enquiries.
+[View the live site](https://autoservice-voronezh.vercel.app) · [Read the architecture](./ARCHITECTURE.md)
 
-## Highlights
+[![AUTOSERVICE/01 — black performance car with its headlights on](./public/hero/dark.png)](https://autoservice-voronezh.vercel.app)
 
-- Scroll-driven visual storytelling powered by GSAP and Motion
-- Responsive interactions tailored to desktop and mobile layouts
-- Feature-oriented TypeScript architecture with one React component per file
-- Deferred sections, code splitting, and an enforced initial bundle budget
+## Main sequences
 
-## Getting started
+- **Exterior-to-engine hero.** Wheel, touch, and keyboard input can accelerate the opening video up to 4×. The intro then hands control to a reversible, scroll-scrubbed reveal.
+- **Device-specific pricing.** Desktop presents services as a spatial card sequence. Mobile gets a compact 3D flip with keyboard controls, built for the smaller viewport.
+- **Drive-away finale.** The closing sequence moves from video into opposing review marquees. Typed contact details and a map complete the page.
+
+## Production details
+
+Good motion has to survive more than a perfect desktop recording. Loading states, reverse scrolling, accessibility, and maintainability are part of the interaction itself.
+
+- **Stable media handoffs.** The poster stays visible until the first decoded video frame is ready. Failed video requests retry before the page switches to a static fallback.
+- **Responsive behavior, not just responsive layout.** Pricing, contact dialogs, media, and scroll timing change between desktop and mobile. Reduced-motion preferences receive deliberate static states.
+- **Measured performance.** Initial JavaScript dropped from about 891 kB to 645.6 kB raw, and from 279.9 kB to 203.1 kB gzip. Lower sections load as separate chunks. CI rejects builds above 700 kB raw or 225 kB gzip.
+- **Code that can be changed safely.** Hero, pricing, promotions, and drive-away each own their components, hooks, styles, types, and state logic. The project has 49 React component files. None exceeds 199 lines.
+- **Regression coverage.** The 18 automated tests cover video handoffs, reverse scrubbing, restored scroll positions, mobile card continuity, and motion-state logic. Every push runs TypeScript, ESLint, tests, a production build, and the bundle budget check.
+
+## Run it locally
 
 Requires Node.js 22 and npm.
 
@@ -23,51 +33,21 @@ npm ci
 npm run dev
 ```
 
-Vite prints the local development URL after startup. To verify the production build:
+Create and preview a production build:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Quality checks
-
-```bash
-npm run typecheck
-npm run lint
-npm test
-npm run build
-npm run check:bundle
-```
-
-Run the complete verification suite with:
+Run the complete verification suite:
 
 ```bash
 npm run check
 ```
 
-## Project structure
+## Stack
 
-Code is grouped by responsibility instead of being collected in a single component directory:
+React 19 · TypeScript · Vite · GSAP · Motion · Lenis · Swiper · Tailwind CSS
 
-- `src/app` — application entry point and providers;
-- `src/pages` — page composition;
-- `src/sections` — major page sections;
-- `src/features` — user-facing flows, such as contact requests;
-- `src/shared` — reusable UI and hooks;
-- `src/content/demo` — the single source of demo content;
-- `public` — images and video assets.
-
-Each module keeps its root component next to its styles, types, and public `index.ts`. Internal components, hooks, model logic, and utilities live in dedicated subdirectories. Every React component has its own `.tsx` file.
-
-See [ARCHITECTURE.md](./ARCHITECTURE.md) for dependency boundaries and module conventions.
-
-## Core technologies
-
-- React 19
-- TypeScript
-- Vite
-- GSAP and Motion
-- Lenis
-- Swiper
-- Tailwind CSS
+> **Demo content:** This is a fictional portfolio project. The business name, address, phone number, reviews, promotions, and other commercial content do not represent a real service center.
