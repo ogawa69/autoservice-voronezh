@@ -1,0 +1,7 @@
+.deferred-section {
+  min-width: 0;
+}
+
+.deferred-section__placeholder {
+  min-height: inherit;
+}

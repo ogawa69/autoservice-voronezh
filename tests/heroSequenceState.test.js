@@ -5,7 +5,7 @@ import {
   canEnterScrub,
   getMasterTargetTime,
   resolveEngineProgress,
-} from "../src/components/heroSequenceState.js";
+} from "../src/sections/hero/model/heroSequenceState.ts";
 
 const scrollRange = {
   startProgress: 0.18,

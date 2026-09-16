@@ -807,7 +807,7 @@ test("scroll videos recover after transient request failures", { timeout: 45_000
   );
 
   await cdp.send("Page.navigate", { url: APP_URL }, sessionId);
-  const recovered = await waitUntil(
+  const heroRecovered = await waitUntil(
     async () => {
       const state = await evaluate(
         cdp,
@@ -815,22 +815,51 @@ test("scroll videos recover after transient request failures", { timeout: 45_000
         `(() => {
           const sequence = document.querySelector('.hero-scroll-sequence');
           const heroVideo = document.querySelector('[data-scrolly-container] video');
-          const reviews = document.querySelector('.drive-away-story');
-          const driveAwayVideo = document.querySelector('.drive-away-story__video video');
           return {
             heroFailed: sequence?.dataset.videoFailed,
             heroPhase: sequence?.dataset.sequencePhase,
             heroReadyState: heroVideo?.readyState ?? 0,
+          };
+        })()`,
+      );
+      return masterVideoRequests >= 2 &&
+        state.heroFailed === "false" &&
+        state.heroReadyState >= 2
+          ? state
+          : false;
+    },
+    15_000,
+    "the hero video to retry and recover",
+  );
+
+  await evaluate(
+    cdp,
+    sessionId,
+    `(() => {
+      document.querySelector('.home-deferred-section--drive-away')?.scrollIntoView();
+      return true;
+    })()`,
+  );
+
+  const driveAwayRecovered = await waitUntil(
+    async () => {
+      const state = await evaluate(
+        cdp,
+        sessionId,
+        `(() => {
+          const reviews = document.querySelector('.drive-away-story');
+          const driveAwayVideo = document.querySelector('.drive-away-story__video video');
+          if (!reviews) {
+            document.querySelector('.home-deferred-section--drive-away')?.scrollIntoView();
+          }
+          return {
             driveAwayFailed: reviews?.dataset.videoFailed,
             driveAwayReady: reviews?.dataset.videoReady,
             driveAwayReadyState: driveAwayVideo?.readyState ?? 0,
           };
         })()`,
       );
-      return masterVideoRequests >= 2 &&
-        driveAwayVideoRequests >= 2 &&
-        state.heroFailed === "false" &&
-        state.heroReadyState >= 2 &&
+      return driveAwayVideoRequests >= 2 &&
         state.driveAwayFailed === "false" &&
         state.driveAwayReady === "true" &&
         state.driveAwayReadyState >= 1
@@ -838,13 +867,13 @@ test("scroll videos recover after transient request failures", { timeout: 45_000
           : false;
     },
     12_000,
-    "the scroll videos to retry and recover",
+    "the deferred drive-away video to retry and recover",
   );
 
   assert.ok(masterVideoRequests >= 2, "the failed video request was not retried");
   assert.ok(driveAwayVideoRequests >= 2, "the failed drive-away video request was not retried");
-  assert.equal(recovered.heroFailed, "false");
-  assert.ok(recovered.heroReadyState >= 2, "the retried hero video did not decode a frame");
-  assert.equal(recovered.driveAwayFailed, "false");
-  assert.equal(recovered.driveAwayReady, "true");
+  assert.equal(heroRecovered.heroFailed, "false");
+  assert.ok(heroRecovered.heroReadyState >= 2, "the retried hero video did not decode a frame");
+  assert.equal(driveAwayRecovered.driveAwayFailed, "false");
+  assert.equal(driveAwayRecovered.driveAwayReady, "true");
 });

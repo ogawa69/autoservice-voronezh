@@ -1,0 +1,240 @@
+/* Styles owned by the home module. */
+
+.site-shell {
+  min-width: 0;
+  padding-block-end: calc(
+    3.5rem + max(var(--space-xs), env(safe-area-inset-bottom)) +
+      var(--rule-hair)
+  );
+}
+
+.desktop-contact-button,
+.mobile-call,
+.mobile-write {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  min-height: 2.75rem;
+  white-space: nowrap;
+}
+
+.desktop-contact-button:active,
+.mobile-call:active,
+.mobile-write:active {
+  transform: translateY(1px);
+}
+
+.mobile-call[aria-disabled="true"],
+.mobile-write:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.site-footer {
+  padding-inline: var(--page-gutter);
+}
+
+.site-footer {
+  display: grid;
+  gap: var(--space-3xl);
+  padding-block: var(--space-3xl) var(--space-2xl);
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.site-footer > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-block-start: var(--space-md);
+  border-block-start: var(--rule-hair) solid color-mix(in oklch, var(--color-paper) 20%, transparent);
+  color: var(--color-neutral);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+}
+
+.mobile-contact-bar {
+  position: fixed;
+  z-index: var(--z-sticky);
+  inset-inline: 0;
+  inset-block-end: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-xs) max(var(--space-xs), env(safe-area-inset-bottom));
+  background: var(--color-ink);
+  border-block-start: var(--rule-hair) solid var(--color-rule);
+}
+
+.desktop-contact-dock {
+  display: none;
+}
+
+.mobile-call,
+.mobile-write {
+  min-height: 3rem;
+  gap: var(--space-xs);
+  padding-inline: var(--space-md);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.mobile-call {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.mobile-write {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+@media (max-width: 47.999rem) {
+  .site-footer {
+    padding-block-start: 20px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  .desktop-contact-button:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (min-width: 40rem) {
+  .site-shell {
+    padding-block-end: 0;
+  }
+
+  .mobile-contact-bar {
+    display: none;
+  }
+}
+
+@media (min-width: 40rem) and (max-width: 47.999rem) {
+
+  .site-shell {
+    padding-block-end: calc(
+      3.5rem + max(var(--space-xs), env(safe-area-inset-bottom)) +
+        var(--rule-hair)
+    );
+  }
+
+  .mobile-contact-bar {
+    display: grid;
+  }
+}
+
+@media (min-width: 48rem) {
+
+  .desktop-contact-dock {
+    position: fixed;
+    z-index: var(--z-sticky);
+    inset-inline-end: var(--space-lg);
+    inset-block-end: var(--space-lg);
+    display: grid;
+    min-width: 16.5rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: stretch;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    box-shadow: 0 1rem 3rem var(--color-shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(14px);
+  }
+
+  .desktop-contact-dock > div {
+    display: grid;
+    align-content: center;
+    gap: var(--space-2xs);
+    padding: var(--space-sm) var(--space-md);
+    border: var(--rule-hair) solid var(--color-rule);
+    border-inline-end: 0;
+  }
+
+  .desktop-contact-dock span {
+    color: var(--color-neutral);
+    font-size: var(--text-xs);
+  }
+
+  .desktop-contact-dock a {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .desktop-contact-button {
+    min-width: 8.5rem;
+    gap: var(--space-xs);
+    padding-inline: var(--space-md);
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    transition: transform var(--dur-micro) var(--ease-out);
+  }
+
+  .desktop-contact-button svg {
+    box-sizing: content-box;
+    padding: var(--space-xs);
+    border-radius: 50%;
+    background: var(--color-accent-ink);
+    color: var(--color-accent);
+  }
+}
+
+@keyframes contact-invite {
+  0%,
+  86%,
+  100% {
+    transform: translateX(0);
+  }
+
+  89% {
+    transform: translateX(-3px);
+  }
+
+  92% {
+    transform: translateX(3px);
+  }
+
+  95% {
+    transform: translateX(-2px);
+  }
+
+  98% {
+    transform: translateX(2px);
+  }
+}
+
+@media (min-width: 48rem) and (prefers-reduced-motion: no-preference) {
+  .desktop-contact-button {
+    animation: contact-invite 7s var(--ease-in-out) 1.2s infinite;
+  }
+
+  .desktop-contact-button:hover,
+.desktop-contact-button:focus-visible,
+.desktop-contact-button:active {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .desktop-contact-dock {
+    transform: none;
+  }
+
+  .mobile-call,
+.mobile-write,
+.desktop-contact-button {
+    transform: none !important;
+  }
+}

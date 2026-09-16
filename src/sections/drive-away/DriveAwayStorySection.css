@@ -1,0 +1,829 @@
+/* Styles owned by the drive module. */
+
+.contacts-section {
+  padding-inline: var(--page-gutter);
+}
+
+.contact-details h2 {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.05;
+}
+
+.contact-details h2 {
+  max-width: 16ch;
+  font-size: clamp(2rem, 4.6vw, 4rem);
+}
+
+.drive-away-story {
+  position: relative;
+  height: 440svh;
+  overflow: clip;
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.drive-away-story__stage {
+  position: sticky;
+  inset-block-start: 0;
+  isolation: isolate;
+  height: 100svh;
+  min-height: min(34rem, 100svh);
+  overflow: hidden;
+  background: var(--color-ink);
+}
+
+.drive-away-story__media,
+.drive-away-story__poster,
+.drive-away-story__video,
+.drive-away-story__video > [data-drive-away-mount] {
+  position: absolute;
+  inset: 0;
+}
+
+.drive-away-story__media {
+  z-index: var(--z-base);
+  overflow: hidden;
+  background: var(--color-ink);
+}
+
+.drive-away-story__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.drive-away-story__video {
+  opacity: 0;
+  transition: opacity var(--dur-short) var(--ease-out);
+}
+
+.drive-away-story[data-video-ready="true"] .drive-away-story__video {
+  opacity: 1;
+}
+
+.drive-away-story__video video,
+.drive-away-story__video canvas {
+  display: block;
+  max-width: none;
+  pointer-events: none;
+}
+
+.drive-away-reviews {
+  position: absolute;
+  z-index: var(--z-raised);
+  inset: 0;
+  display: grid;
+  align-content: center;
+  gap: clamp(var(--space-md), 3svh, var(--space-xl));
+  padding-block: clamp(var(--space-md), 5svh, var(--space-2xl));
+  color: var(--color-paper);
+  visibility: hidden;
+  will-change: opacity, transform, clip-path;
+}
+
+.drive-away-reviews__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--space-md);
+  padding-inline: var(--page-gutter);
+}
+
+.drive-away-reviews__heading-copy {
+  display: grid;
+}
+
+.drive-away-reviews__motion-toggle {
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: var(--rule-hair) solid color-mix(in oklch, var(--color-ink) 18%, transparent);
+  border-radius: 50%;
+  background: color-mix(in oklch, var(--color-paper) 92%, transparent);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.drive-away-reviews__motion-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.drive-away-reviews__header h2 {
+  max-width: 17ch;
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 5.1vw, 4.25rem);
+  font-weight: 700;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.drive-review-rows {
+  display: grid;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.drive-review-row {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.drive-review-set {
+  display: flex;
+  gap: var(--space-sm);
+  padding-inline-end: var(--space-sm);
+}
+
+.drive-review-card {
+  display: grid;
+  width: min(72vw, 18rem);
+  min-height: 9.5rem;
+  flex: 0 0 auto;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--space-sm);
+  margin: 0;
+  padding: var(--space-md);
+  overflow: hidden;
+  border: var(--rule-hair) solid color-mix(in oklch, var(--color-ink) 10%, transparent);
+  border-radius: var(--radius-lg);
+  background: color-mix(in oklch, var(--color-paper) 96%, transparent);
+  color: var(--color-ink);
+  box-shadow: 0 0.75rem 2rem color-mix(in oklch, var(--color-paper) 16%, transparent);
+}
+
+.drive-review-card__header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.drive-review-card__header strong {
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.drive-review-stars {
+  display: inline-flex;
+  gap: var(--space-2xs);
+  color: var(--color-accent);
+}
+
+.drive-review-stars svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.drive-review-card__text {
+  margin: 0;
+  color: var(--color-ink-2);
+  font-size: clamp(0.82rem, 1.05vw, 0.95rem);
+  line-height: 1.42;
+}
+
+.drive-review-card__avatar {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.drive-review-static-grid {
+  display: grid;
+  gap: var(--space-sm);
+  padding-inline: var(--page-gutter);
+}
+
+.drive-away-contact {
+  position: absolute;
+  z-index: var(--z-raised);
+  inset: 0;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  will-change: opacity, transform, clip-path;
+}
+
+.contacts-section.contact-story--embedded {
+  width: 100%;
+  max-height: 100svh;
+  gap: var(--space-sm);
+  align-content: center;
+  padding: var(--space-md) var(--page-gutter);
+  background: transparent;
+}
+
+.contact-story--embedded::before {
+  display: none;
+}
+
+.contact-story--embedded .contact-details {
+  gap: var(--space-md);
+  padding: 0;
+  color: var(--color-paper);
+}
+
+.contact-story--embedded .contact-story__heading {
+  gap: var(--space-xs);
+}
+
+.contact-story--embedded .contact-story__heading h2 {
+  font-size: clamp(1.6rem, 7vw, 2.6rem);
+}
+
+.contact-story--embedded .contact-details dl {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+}
+
+.contact-story--embedded .contact-details dl > div {
+  min-width: 0;
+  gap: var(--space-2xs);
+  padding-block-end: var(--space-sm);
+  border-color: color-mix(in oklch, var(--color-paper) 28%, transparent);
+}
+
+.contact-story--embedded .contact-details dt {
+  color: color-mix(in oklch, var(--color-paper) 68%, transparent);
+  font-size: var(--text-xs);
+}
+
+.contact-story--embedded .contact-details dd {
+  color: var(--color-paper);
+  font-size: clamp(0.9rem, 3.7vw, 1.1rem);
+  line-height: 1.2;
+}
+
+.contact-story--embedded .contact-map-reveal,
+.contact-story--embedded .map-embed {
+  min-height: clamp(14rem, 36svh, 20rem);
+}
+
+.contact-story--embedded .map-embed {
+  border-color: color-mix(in oklch, var(--color-paper) 38%, transparent);
+}
+
+.contact-story--embedded .contact-map-image {
+  height: 100%;
+  min-height: calc(clamp(14rem, 36svh, 20rem) - 4px);
+  pointer-events: none;
+}
+
+.contacts-section {
+  display: grid;
+  gap: var(--space-2xl);
+  padding-block: var(--space-4xl);
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.contact-details {
+  display: grid;
+  gap: var(--space-2xl);
+}
+
+.contact-story {
+  position: relative;
+  isolation: isolate;
+}
+
+.contact-story::before {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: var(--page-gutter);
+  height: var(--rule-hair);
+  content: "";
+  background: linear-gradient(90deg, var(--color-accent), transparent 44%);
+}
+
+.contact-story__heading {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.contact-story__heading > span {
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.contact-details dl {
+  display: grid;
+  gap: var(--space-lg);
+  margin: 0;
+}
+
+.contact-details dl > div {
+  display: grid;
+  gap: var(--space-xs);
+  padding-block-end: var(--space-lg);
+  border-block-end: var(--rule-hair) solid var(--color-rule);
+}
+
+.contact-story--embedded .contact-details__address {
+  grid-column: 1 / -1;
+}
+
+.contact-details dt {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+.contact-details dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.contact-details dd a {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.contact-details__phone dd a {
+  color: var(--color-focus);
+}
+
+.contact-type-placeholder {
+  visibility: hidden;
+}
+
+.map-embed {
+  position: relative;
+  min-height: 22rem;
+  overflow: hidden;
+  border: 2px solid var(--color-rule);
+  border-radius: var(--radius-lg);
+  background: var(--color-paper-2);
+}
+
+.contact-map-reveal {
+  min-width: 0;
+  min-height: 22rem;
+}
+
+.contact-map-reveal .map-embed {
+  height: 100%;
+}
+
+.contact-map-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: calc(28rem - 4px);
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(1) contrast(1.04);
+}
+
+.map-caption {
+  position: absolute;
+  z-index: var(--z-raised);
+  inset-block-start: var(--space-sm);
+  inset-inline-start: var(--space-sm);
+  pointer-events: none;
+}
+
+.map-caption a {
+  --map-control-size: 2.75rem;
+  --map-control-width: 11.25rem;
+  position: relative;
+  display: inline-flex;
+  width: var(--map-control-width);
+  height: var(--map-control-size);
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-xs);
+  padding-inline: var(--space-sm) var(--space-md);
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-accent);
+  clip-path: inset(
+    0 calc(var(--map-control-width) - var(--map-control-size)) 0 0 round 999px
+  );
+  color: var(--color-accent-ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  pointer-events: auto;
+  white-space: nowrap;
+  transition:
+    clip-path var(--dur-short) var(--ease-out),
+    transform var(--dur-micro) var(--ease-out);
+}
+
+.map-caption a > svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+}
+
+.map-caption a > span {
+  opacity: 0;
+  transform: translateX(-0.35rem);
+  transition:
+    opacity var(--dur-short) var(--ease-out),
+    transform var(--dur-short) var(--ease-out);
+}
+
+.map-caption a:focus-visible {
+  outline: 2px solid var(--color-accent-ink);
+  outline-offset: -3px;
+}
+
+.map-caption a:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 39.999rem) {
+
+  .drive-away-story {
+    height: 440svh;
+  }
+
+  .drive-away-reviews {
+    gap: var(--space-md);
+  }
+
+  .drive-away-reviews__header h2 {
+    max-width: 15ch;
+    font-size: clamp(1.85rem, 8.5vw, 2.65rem);
+  }
+
+  .drive-review-card {
+    width: min(74vw, 18rem);
+    min-height: 9.5rem;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+  }
+
+  .contact-story {
+    padding-block: var(--space-3xl);
+  }
+}
+
+@media (max-width: 47.999rem) {
+
+  .contact-story--embedded .contact-map-reveal {
+    width: calc(100% + (var(--page-gutter) * 2));
+    margin-inline: calc(var(--page-gutter) * -1);
+  }
+
+  .contact-story--embedded .map-embed {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .contact-story--embedded .contact-map-image {
+    min-height: clamp(14rem, 36svh, 20rem);
+  }
+}
+
+@media (max-height: 35rem) and (max-width: 47.999rem) {
+  .drive-away-reviews {
+    gap: var(--space-xs);
+    padding-block: var(--space-xs);
+  }
+
+  .drive-away-reviews__header h2 {
+    font-size: clamp(1.55rem, 7svh, 2.15rem);
+  }
+
+  .drive-review-card {
+    min-height: 8.5rem;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .drive-review-card__text {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+
+  .drive-review-rows {
+    gap: var(--space-xs);
+  }
+
+  .drive-review-card__avatar {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .drive-review-stars svg {
+    width: 0.78rem;
+    height: 0.78rem;
+  }
+}
+
+@media (max-height: 40rem) and (max-width: 59.999rem) {
+  .contacts-section.contact-story--embedded {
+    height: 100svh;
+    grid-template-rows: auto minmax(9rem, 31svh);
+    gap: var(--space-xs);
+    padding-block: var(--space-xs);
+  }
+
+  .contact-story--embedded .contact-details {
+    gap: var(--space-xs);
+  }
+
+  .contact-story--embedded .contact-story__heading > span {
+    display: none;
+  }
+
+  .contact-story--embedded .contact-story__heading h2 {
+    font-size: clamp(1.25rem, 5.5svh, 1.75rem);
+  }
+
+  .contact-story--embedded .contact-details dl {
+    gap: var(--space-xs);
+  }
+
+  .contact-story--embedded .contact-details dd {
+    font-size: 0.78rem;
+  }
+
+  .contact-story--embedded .contact-map-reveal,
+.contact-story--embedded .map-embed {
+    height: 31svh;
+    min-height: 9rem;
+  }
+
+  .contact-story--embedded .contact-map-image {
+    height: 100%;
+    min-height: 0;
+  }
+}
+
+@media (max-height: 40rem) and (max-width: 47.999rem) {
+  .contacts-section.contact-story--embedded {
+    padding-block-end: calc(
+      4.5rem + var(--space-xs) + env(safe-area-inset-bottom)
+    );
+  }
+}
+
+@media (max-width: 47.999rem) and (prefers-reduced-motion: no-preference) {
+  .contact-story--embedded .contact-map-reveal {
+    position: relative;
+    aspect-ratio: 1730 / 1106;
+  }
+
+  .contact-story--embedded .map-embed {
+    position: absolute;
+    inset-block-start: var(--contact-map-top-offset, 0px);
+    inset-inline: 0;
+    height: var(--contact-map-fill-height, 100%);
+    min-height: 0;
+  }
+
+  .contact-story--embedded .contact-map-image {
+    min-height: 0;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .map-caption a:hover,
+.map-caption a:focus-visible {
+    clip-path: inset(0 0 0 0 round 999px);
+  }
+
+  .map-caption a:hover > span,
+.map-caption a:focus-visible > span {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .map-caption a {
+    clip-path: inset(0 0 0 0 round 999px);
+  }
+
+  .map-caption a > span {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 40rem) {
+
+  .drive-away-reviews__header h2 {
+    justify-self: start;
+  }
+
+  .drive-review-card {
+    width: min(36vw, 18rem);
+    min-height: 9.5rem;
+  }
+
+  .drive-review-static-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .drive-review-static-grid .drive-review-card {
+    width: auto;
+  }
+}
+
+@media (min-width: 40rem) and (max-width: 47.999rem) {
+
+  .drive-away-story {
+    height: 440svh;
+  }
+
+  .drive-away-reviews__header {
+    align-items: start;
+  }
+
+  .drive-away-reviews__header h2 {
+    justify-self: start;
+  }
+
+  .drive-review-card {
+    width: min(58vw, 18rem);
+  }
+}
+
+@media (min-width: 60rem) {
+
+  .drive-away-story {
+    height: 480svh;
+  }
+
+  .drive-review-card {
+    width: min(24vw, 20rem);
+    min-height: 9.75rem;
+  }
+
+  .drive-review-static-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .contacts-section {
+    grid-template-columns: minmax(20rem, 0.8fr) minmax(0, 1.2fr);
+    align-items: stretch;
+  }
+
+  .contact-story--embedded {
+    height: min(78svh, 42rem);
+    grid-template-columns: minmax(max-content, 0.82fr) minmax(0, 1.18fr);
+    padding-block: 0;
+  }
+
+  .contact-story--embedded .contact-details,
+.contact-story--embedded .contact-map-reveal {
+    height: 100%;
+  }
+
+  .contact-story--embedded .contact-details {
+    align-content: center;
+    padding: clamp(var(--space-lg), 3vw, var(--space-2xl));
+  }
+
+  .contact-story--embedded .contact-details dl > div {
+    width: auto;
+    max-width: none;
+    justify-self: stretch;
+    padding-inline-end: var(--space-md);
+  }
+
+  .contact-story--embedded .contact-details__phone {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .contact-story--embedded .contact-details__hours {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .contact-story--embedded .contact-details__address {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .contact-story--embedded .contact-details dd,
+.contact-story--embedded .contact-details dd a,
+.contact-story--embedded .contact-details dd span {
+    overflow-wrap: normal;
+    white-space: nowrap;
+  }
+
+  .contact-story--embedded .contact-details dd a {
+    max-width: none;
+  }
+
+  .contact-story--embedded .contact-map-reveal,
+.contact-story--embedded .map-embed,
+.contact-story--embedded .contact-map-image {
+    min-height: 0;
+  }
+
+  .contact-map-image {
+    min-height: 36rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .drive-away-story {
+    height: auto;
+  }
+
+  .drive-away-story__stage {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .drive-away-story__media {
+    display: none;
+  }
+
+  .drive-away-reviews {
+    position: relative;
+    inset: auto;
+    padding-block: var(--space-3xl);
+    opacity: 1 !important;
+    visibility: visible !important;
+    clip-path: none !important;
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .drive-review-static-grid .drive-review-card {
+    width: auto;
+  }
+
+  .drive-away-contact {
+    position: relative;
+    inset: auto;
+    overflow: visible;
+    visibility: visible !important;
+    pointer-events: auto;
+  }
+
+  .contact-story--embedded {
+    height: auto;
+    max-height: none;
+    padding-block: var(--space-3xl);
+    background: var(--color-paper);
+  }
+
+  .contact-story--embedded .contact-details,
+.contact-story--embedded .contact-details h2,
+.contact-story--embedded .contact-details dd {
+    color: var(--color-ink);
+  }
+
+  .contact-story--embedded .contact-details dt {
+    color: var(--color-muted);
+  }
+
+  .contact-story--embedded .contact-details dl > div {
+    border-color: var(--color-rule);
+  }
+
+  .map-caption a > span {
+    transform: none;
+  }
+}

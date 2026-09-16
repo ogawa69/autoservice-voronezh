@@ -1,0 +1,41 @@
+/* Styles owned by the brands module. */
+
+.brands-section {
+  padding-inline: var(--page-gutter);
+}
+
+.brands-section {
+  padding-block: var(--space-2xl) var(--space-3xl);
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.brands-carousel {
+  margin-block-start: 0;
+  overflow: hidden;
+  border-block: var(--rule-hair) solid color-mix(in oklch, var(--color-paper) 20%, transparent);
+}
+
+.brand-row + .brand-row {
+  border-block-start: var(--rule-hair) solid color-mix(in oklch, var(--color-paper) 13%, transparent);
+}
+
+.brands-swiper .swiper-wrapper {
+  align-items: center;
+  transition-timing-function: linear !important;
+}
+
+.brand-slide {
+  width: auto !important;
+}
+
+.brand-slide span {
+  display: block;
+  padding-block: var(--space-md);
+  color: var(--color-neutral);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.6vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: var(--tracking-display);
+  white-space: nowrap;
+}

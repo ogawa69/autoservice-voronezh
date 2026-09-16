@@ -7,7 +7,7 @@ import {
   PRICE_CARD_MAX_DEGREES_PER_SECOND,
   PRICE_CARD_MAX_FRAME_DELTA_MS,
   advancePriceCardProgress,
-} from "../src/components/priceCardMotion.js";
+} from "../src/sections/pricing/lib/priceCardMotion.ts";
 
 const degreesBetween = (fromProgress, toProgress, serviceCount) =>
   Math.abs(toProgress - fromProgress) *

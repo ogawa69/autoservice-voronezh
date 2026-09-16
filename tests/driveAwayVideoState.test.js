@@ -3,7 +3,7 @@ import test from "node:test";
 import {
   getDriveAwaySeekTarget,
   getDriveAwayTargetTime,
-} from "../src/components/driveAwayVideoState.js";
+} from "../src/sections/drive-away/model/driveAwayVideoState.ts";
 
 test("reverse scrub seeks directly to the latest requested frame", () => {
   assert.equal(
