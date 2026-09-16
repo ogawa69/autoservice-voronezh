@@ -30,6 +30,7 @@
   --font-display: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
   --font-body: "IBM Plex Sans", "Noto Sans", ui-sans-serif, sans-serif;
   --tracking-display: -0.035em;
+  --word-spacing-heading: -0.5ch;
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;

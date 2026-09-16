@@ -41,6 +41,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+:where(h1, h2, h3, h4, h5, h6) {
+  word-spacing: var(--word-spacing-heading);
+}
+
 button,
 input,
 textarea {
