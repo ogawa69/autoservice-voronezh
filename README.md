@@ -1,27 +1,36 @@
-# АВТОСЕРВИС/01
+# AUTOSERVICE/01
 
-Демонстрационный лендинг автосервиса на React и Vite.
+A cinematic, responsive landing page concept for an auto repair shop, built as a portfolio demo with React, TypeScript, Vite, and scroll-driven motion.
+
+[View the live demo](https://autoservice-voronezh.vercel.app)
 
 > [!IMPORTANT]
-> Это демопроект. Название компании, адрес, телефон, отзывы, акции и другие данные вымышлены. Сайт не представляет реальный автосервис, а указанные контакты не предназначены для обращений.
+> This is a demo project. The company name, address, phone number, reviews, promotions, and all other business content are fictional. The site does not represent a real service center, and its contact details are not intended for customer enquiries.
 
-## Запуск
+## Highlights
 
-Требуется Node.js 22 и npm.
+- Scroll-driven visual storytelling powered by GSAP and Motion
+- Responsive interactions tailored to desktop and mobile layouts
+- Feature-oriented TypeScript architecture with one React component per file
+- Deferred sections, code splitting, and an enforced initial bundle budget
+
+## Getting started
+
+Requires Node.js 22 and npm.
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Vite выведет локальный адрес после запуска. Для проверки production-сборки:
+Vite prints the local development URL after startup. To verify the production build:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Проверки
+## Quality checks
 
 ```bash
 npm run typecheck
@@ -31,34 +40,34 @@ npm run build
 npm run check:bundle
 ```
 
-Все проверки одной командой:
+Run the complete verification suite with:
 
 ```bash
 npm run check
 ```
 
-## Структура
+## Project structure
 
-Код сгруппирован по назначению, а не сложен в одну общую папку компонентов:
+Code is grouped by responsibility instead of being collected in a single component directory:
 
-- `src/app` — корень приложения и провайдеры;
-- `src/pages` — композиция страниц;
-- `src/sections` — крупные блоки страницы;
-- `src/features` — пользовательские сценарии, например форма обращения;
-- `src/shared` — переиспользуемые хуки и элементы интерфейса;
-- `src/content/demo` — единый источник демонстрационного контента;
-- `public` — изображения и видео.
+- `src/app` — application entry point and providers;
+- `src/pages` — page composition;
+- `src/sections` — major page sections;
+- `src/features` — user-facing flows, such as contact requests;
+- `src/shared` — reusable UI and hooks;
+- `src/content/demo` — the single source of demo content;
+- `public` — images and video assets.
 
-Каждый модуль хранит главный компонент рядом со стилями, типами и публичным `index.ts`. Внутренние компоненты, хуки, модель и утилиты лежат в его подпапках. Один React-компонент занимает один `.tsx`-файл.
+Each module keeps its root component next to its styles, types, and public `index.ts`. Internal components, hooks, model logic, and utilities live in dedicated subdirectories. Every React component has its own `.tsx` file.
 
-Подробные правила и допустимые зависимости описаны в [ARCHITECTURE.md](./ARCHITECTURE.md).
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for dependency boundaries and module conventions.
 
-## Основные технологии
+## Core technologies
 
-- React 19;
-- TypeScript;
-- Vite;
-- GSAP и Motion;
-- Lenis;
-- Swiper;
-- Tailwind CSS.
+- React 19
+- TypeScript
+- Vite
+- GSAP and Motion
+- Lenis
+- Swiper
+- Tailwind CSS
