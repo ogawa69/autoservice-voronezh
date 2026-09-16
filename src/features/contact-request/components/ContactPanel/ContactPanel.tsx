@@ -19,8 +19,7 @@ export function ContactPanel({ mode, firstActionRef }: ContactPanelProps) {
       </Close>
 
       <header className="dialog-intro">
-        <p className="dialog-index">Связь / запись</p>
-        <Title className="dialog-title">Способ связи</Title>
+        <Title className="dialog-title">Связь с нами</Title>
         <Description className="dialog-description">
           Позвоните или откройте готовое сообщение в удобном мессенджере.
         </Description>

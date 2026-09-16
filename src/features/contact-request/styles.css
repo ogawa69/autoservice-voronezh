@@ -119,7 +119,6 @@
   padding: var(--space-lg) calc(var(--page-gutter) + 3.5rem) var(--space-sm) var(--page-gutter);
 }
 
-.dialog-index,
 .dialog-note {
   margin: 0;
   color: var(--color-neutral);
@@ -188,10 +187,6 @@
   color: var(--color-accent-ink);
 }
 
-.channel-link-phone small {
-  color: color-mix(in oklch, var(--color-accent-ink) 68%, transparent);
-}
-
 .channel-link span {
   display: grid;
   min-width: 0;
@@ -209,6 +204,10 @@
   color: var(--color-neutral);
   font-size: var(--text-xs);
   line-height: 1.35;
+}
+
+.channel-link-phone small {
+  color: var(--color-paper);
 }
 
 .dialog-note {
